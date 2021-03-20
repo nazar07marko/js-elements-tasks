@@ -35,3 +35,11 @@ const content = document.querySelector(".promo__content");
 content.style.width = "calc(100% - 300px)";
 const genre = document.querySelector(".promo__genre");
 genre.textContent = "Драма";
+movieDB.movies.sort();
+
+const viewedFilms = document.querySelector(".promo__interactive-list");
+viewedFilms.innerHTML = "";
+movieDB.movies.forEach(function(film, i){
+    viewedFilms.innerHTML += `<ul class="promo__interactive-list">
+    <li class="promo__interactive-item">${++i}. ${film}</li>`;
+});
