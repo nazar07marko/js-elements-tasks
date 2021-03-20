@@ -33,3 +33,5 @@ const ads = document.querySelector(".promo__adv");
 ads.remove();
 const content = document.querySelector(".promo__content");
 content.style.width = "calc(100% - 300px)";
+const genre = document.querySelector(".promo__genre");
+genre.textContent = "Драма";
