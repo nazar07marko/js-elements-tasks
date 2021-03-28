@@ -43,3 +43,29 @@ movieDB.movies.forEach(function(film, i){
     viewedFilms.innerHTML += `<ul class="promo__interactive-list">
     <li class="promo__interactive-item">${++i}. ${film}</li>`;
 });
+function createMovieList(films, parentElement){
+    parentElement.innerHTML = "";
+    
+    movieDB.movies.forEach(function(film, i){
+        viewedFilms.innerHTML += `<ul class="promo__interactive-list">
+        <li class="promo__interactive-item">${++i}. ${film}</li>`;
+    });
+}
+const addForm = document.querySelector("form.add");
+addForm.addEventListener('submit', function(event){
+    event.preventDefault();
+    let newFilm = addForm.querySelector('.adding__input').value;
+    if (newFilm.length > 21){
+        newFilm = newFilm.substring(0, 22)+'...';
+    }    
+    movieDB.movies.push(newFilm);
+    createMovieList(movieDB.movies, viewedFilms);
+    addForm.reset();
+});
+const bgPromo = document.querySelector('.promo__bg');
+bgPromo.addEventListener('mouseover', function(event){
+    event.currentTarget.style.background = "url(../img/bg.jpg)";
+});
+bgPromo.addEventListener('mouseout', function(event){
+    event.currentTarget.style.background = "url(../img/mars.webp)";
+});
